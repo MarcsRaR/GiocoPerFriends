@@ -1,0 +1,28 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #001f3f;
+  color: white;
+  text-align: center;
+  margin-top: 50px;
+}
+
+button {
+  background: cyan;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+input {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+}
+
+img {
+  border-radius: 10px;
+  margin: 10px;
+}

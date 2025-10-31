@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Gioco a Livelli</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  {% if before %}
+    <div id="countdown"></div>
+    <script>
+      const target = new Date();
+      target.setHours(19, 30, 0, 0);
+      function updateCountdown() {
+        const now = new Date();
+        const diff = target - now;
+        if (diff <= 0) location.reload();
+        const h = Math.floor(diff / 1000 / 60 / 60);
+        const m = Math.floor((diff / 1000 / 60) % 60);
+        const s = Math.floor((diff / 1000) % 60);
+        document.getElementById("countdown").innerText = 
+          `Il gioco si sblocca tra ${h}h ${m}m ${s}s`;
+      }
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+    </script>
+  {% else %}
+    <div id="game">
+      <div class="screen" id="screen-start">
+        <h1>Com'è andata?</h1>
+        <button onclick="startGame()">Scoprilo</button>
+      </div>
+      <div id="content"></div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  {% endif %}
+</body>
+</html>
